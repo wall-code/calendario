@@ -1,29 +1,33 @@
 const date = new Date();
-
+var cont=1;
 const day = date.getDate()
 const month = date.getMonth()
 const year = date.getFullYear()
+var dia
 
 
-
-const daysMonth = new Date (year, month + 1 , 0).getDate()
-
-
-function inicia(){
-    
-    for(i=0;i<=daysMonth;i++){
-        var dia =document.getElementById("conteiner");
-        var span = document.createElement("span")
-        span.textContent=i;
-        dia.appendChild(span);
-        
-    }
-    
+function load(){
+dias(cont)
 }
 
-window.addEventListener("load",inicia);
-
-
+    function dias(cont){
+        const daysMonth = new Date (year, month + cont , 0).getDate()
+        for(i=1;i<=daysMonth;i++){
+            //dia =document.getElementById("");
+            var span = document.createElement("span")
+            span.textContent=i;
+           document.getElementById("conteiner").append(span)
+            
+            
+        }
+        
+    }
+function clickar(){
+    cont=cont+1;
+    dias(cont);
+    console.log("teste")
+}
+load()
 /*const date = new Date();
 const mes=date.getMonth();
 const agora = new Date(date.getFullYear(),date.getMonth(),0).toString();
