@@ -16,11 +16,15 @@ const year = date.getFullYear()
             var dia =document.getElementById("conteiner");
             console.log(dia)
             var span = document.createElement("span")
-            span.textContent=i;
+            span.id="celula"
+            span.textContent=i
+            span.addEventListener('click',alert())
            dia.appendChild(span)
             
         }
-        
+        const datass = new Date (year, month + cont , 0).toString()
+        var formatada = datass.substring(4,7)+" "+datass.substring(11,15)
+        document.getElementById("data").innerHTML=formatada
     } 
 
 
@@ -28,15 +32,17 @@ const year = date.getFullYear()
 dias();
 
 
-function clickar(){
+function proximo(){
     document.getElementById("conteiner").innerHTML=''
     cont++;
     dias();
-    console.log("teste")
-    const datass = new Date (year, month + cont , 0).toString()
-    var formatada = datass.substring(4,7)+" "+datass.substring(11,15)
-    document.getElementById("data").innerHTML=formatada
+
+   
     
 }
 
 
+
+function alert(){
+    console.log("teste")
+}
